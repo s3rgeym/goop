@@ -24,4 +24,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
-          gh release upload ${GITHUB_REF#refs/*/} ./goop
+          gh release upload ${GITHUB_REF##*/} ./goop
