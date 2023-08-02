@@ -19,8 +19,9 @@ jobs:
 
       - name: Build
         run: go build .
-
-      - name: Upload Binaries to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: ./goop
+        
+      - name: Upload Release Asset      
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run:
+          gh release upload ${GITHUB_REF#refs/*/} ./goop
