@@ -1,4 +1,4 @@
-name: Build and Release
+name: Build and Upload Bnaries
 
 on:
   push:
@@ -20,10 +20,7 @@ jobs:
       - name: Build
         run: go build .
 
-#       - name: Test
-#         run: go test .
-        
-      - name: Add Binary to Release
-        uses: actions/upload-artifact@v3
+      - name: Upload Binaries to Release
+        uses: softprops/action-gh-release@v1
         with:
-          path: ./goop
+          files: ./goop
